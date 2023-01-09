@@ -1,0 +1,48 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+form {
+  margin: 0 5%;
+  padding: 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+legend {
+  margin-bottom: 20px;
+}
+
+fieldset{
+  width: 70%;
+}
+
+.form-element{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 15px 0;
+  align-items: center;
+}
+
+.form-element label{
+  display: flex;
+  justify-content: flex-end;
+  margin: auto 10px;
+  width: 20%;
+}
+
+.form-element input, select{
+  width: 70%;
+}
+
+.submit-button{
+  margin: 20px 0;
+  width: 150px;
+}
+
+.invalid-feedback{
+  white-space: nowrap;
+}

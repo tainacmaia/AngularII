@@ -1,0 +1,167 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <fieldset>
+      <legend>Dados Pessoais</legend>
+      <mat-form-field appearance="outline" class="form-element">
+        <mat-label for="name">Nome</mat-label>
+        <input matInput type="text"
+        formControlName="name"
+        id="name">
+        <mat-icon matSuffix *ngIf="!form.get('name')?.errors" class="text-success">check</mat-icon>
+        <mat-icon matSuffix *ngIf="form.get('name')?.errors && form.get('name')?.touched" class="text-danger">error_outline</mat-icon>
+        <mat-hint class="text-danger"
+        *ngIf="form.get('name')?.errors && form.get('name')?.touched">Campo obrigatório</mat-hint>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="form-element">
+        <mat-label for="profession">Profissão</mat-label>
+        <input matInput type="text"
+        formControlName="profession"
+        id="profession">
+        <mat-icon matSuffix *ngIf="!form.get('profession')?.errors" class="text-success">check</mat-icon>
+        <mat-icon matSuffix *ngIf="form.get('profession')?.errors && form.get('profession')?.touched" class="text-danger">error_outline</mat-icon>
+        <mat-hint class="text-danger"
+        *ngIf="form.get('profession')?.errors && form.get('profession')?.touched">Campo obrigatório</mat-hint>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="form-element">
+        <mat-label for="birthDate">Data de Nascimento</mat-label>
+        <input matInput
+        type="text"
+        formControlName="birthDate"
+        id="birthDate"
+        matInput [matDatepicker]="birthDate" placeholder="dd/MM/aaaa">
+        <mat-datepicker-toggle matSuffix [for]="birthDate"></mat-datepicker-toggle>
+        <mat-datepicker #birthDate color="primary"></mat-datepicker>
+        <mat-icon matSuffix *ngIf="!form.get('birthDate')?.errors" class="text-success">check</mat-icon>
+        <mat-icon matSuffix *ngIf="form.get('birthDate')?.errors && form.get('birthDate')?.touched" class="text-danger">error_outline</mat-icon>
+        <mat-hint class="text-danger"
+        *ngIf="form.get('birthDate')?.errors && form.get('birthDate')?.touched">Campo obrigatório, formato dd/MM/aaaa</mat-hint>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="form-element">
+        <mat-label for="documentNumber">CPF</mat-label>
+        <input matInput type="text"
+        formControlName="documentNumber"
+        id="documentNumber"
+        mask="000.000.000-00">
+        <mat-icon matSuffix *ngIf="!form.get('documentNumber')?.errors" class="text-success">check</mat-icon>
+        <mat-icon matSuffix *ngIf="form.get('documentNumber')?.errors && form.get('documentNumber')?.touched" class="text-danger">error_outline</mat-icon>
+        <mat-hint class="text-danger"
+        *ngIf="form.get('documentNumber')?.errors && form.get('documentNumber')?.touched">Campo obrigatório</mat-hint>
+      </mat-form-field>
+    </fieldset>
+    <mat-divider class="my-3"></mat-divider>
+    <fieldset formGroupName="address">
+      <legend>Endereço</legend>
+      <div class="address-elements">
+        <mat-form-field appearance="outline" class="form-element">
+          <mat-label for="zipCode">CEP</mat-label>
+          <input matInput type="text"
+          formControlName="zipCode"
+          id="zipCode"
+          mask="00000-000">
+          <mat-icon matSuffix *ngIf="!form.get('address.zipCode')?.errors" class="text-success">check</mat-icon>
+          <mat-icon matSuffix *ngIf="form.get('address.zipCode')?.errors && form.get('address.zipCode')?.touched" class="text-danger">error_outline</mat-icon>
+          <mat-hint class="text-danger"
+          *ngIf="form.get('address.zipCode')?.errors && form.get('address.zipCode')?.touched">Campo obrigatório</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="form-element">
+          <mat-label for="street">Logradouro</mat-label>
+          <input matInput type="text"
+          formControlName="street"
+          id="street">
+          <mat-icon matSuffix *ngIf="!form.get('address.street')?.errors" class="text-success">check</mat-icon>
+          <mat-icon matSuffix *ngIf="form.get('address.street')?.errors && form.get('address.street')?.touched" class="text-danger">error_outline</mat-icon>
+          <mat-hint class="text-danger"
+          *ngIf="form.get('address.street')?.errors && form.get('address.street')?.touched">Campo obrigatório</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="form-element">
+          <mat-label for="number">Número</mat-label>
+          <input matInput type="number"
+          formControlName="number"
+          id="number">
+          <mat-icon matSuffix *ngIf="!form.get('address.number')?.errors" class="text-success">check</mat-icon>
+          <mat-icon matSuffix *ngIf="form.get('address.number')?.errors && form.get('address.number')?.touched" class="text-danger">error_outline</mat-icon>
+          <mat-hint class="text-danger"
+          *ngIf="form.get('address.number')?.errors && form.get('address.number')?.touched">Campo obrigatório</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="form-element">
+          <mat-label for="complement">Complemento</mat-label>
+          <input matInput type="text"
+          formControlName="complement"
+          id="complement">
+          <mat-icon matSuffix *ngIf="!form.get('address.complement')?.errors" class="text-success">check</mat-icon>
+          <mat-icon matSuffix *ngIf="form.get('address.complement')?.errors && form.get('address.complement')?.touched" class="text-danger">error_outline</mat-icon>
+          <mat-hint class="text-danger"
+          *ngIf="form.get('address.complement')?.errors && form.get('address.complement')?.touched">Campo obrigatório</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="form-element">
+          <mat-label for="neighborhood">Bairro</mat-label>
+          <input matInput type="text"
+          formControlName="neighborhood"
+          id="neighborhood">
+          <mat-icon matSuffix *ngIf="!form.get('address.neighborhood')?.errors" class="text-success">check</mat-icon>
+          <mat-icon matSuffix *ngIf="form.get('address.neighborhood')?.errors && form.get('address.neighborhood')?.touched" class="text-danger">error_outline</mat-icon>
+          <mat-hint class="text-danger"
+          *ngIf="form.get('address.neighborhood')?.errors && form.get('address.neighborhood')?.touched">Campo obrigatório</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="form-element">
+          <mat-label for="city">Cidade</mat-label>
+          <input matInput type="text"
+          formControlName="city"
+          id="city">
+          <mat-icon matSuffix *ngIf="!form.get('address.city')?.errors" class="text-success">check</mat-icon>
+          <mat-icon matSuffix *ngIf="form.get('address.city')?.errors && form.get('address.city')?.touched" class="text-danger">error_outline</mat-icon>
+          <mat-hint class="text-danger"
+          *ngIf="form.get('address.city')?.errors && form.get('address.city')?.touched">Campo obrigatório</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="form-element">
+          <mat-label for="state">Estado</mat-label>
+          <mat-select formControlName="state">
+            <mat-option *ngFor="let state of states" [value]="state.sigla">
+              {{ state.nome }}
+            </mat-option>
+          </mat-select>
+          <mat-icon matSuffix *ngIf="!form.get('address.state')?.errors" class="text-success">check</mat-icon>
+          <mat-icon matSuffix *ngIf="form.get('address.state')?.errors && form.get('address.state')?.touched" class="text-danger">error_outline</mat-icon>
+          <mat-hint class="text-danger"
+          *ngIf="form.get('address.state')?.errors && form.get('address.state')?.touched">Campo obrigatório
+          </mat-hint>
+        </mat-form-field>
+      </div>
+    </fieldset>
+    <mat-divider class="my-3"></mat-divider>
+    <fieldset formGroupName="contact">
+      <legend>Contato</legend>
+      <mat-form-field appearance="outline" class="form-element">
+        <mat-label for="phone">Telefone</mat-label>
+        <input matInput
+          type="tel"
+          formControlName="phone"
+          id="phone"
+          mask="(00) 00000-0000"
+          placeholder="(00) 0 0000-0000"
+        >
+        <mat-icon matSuffix *ngIf="!form.get('contact.phone')?.errors" class="text-success">check</mat-icon>
+        <mat-icon matSuffix *ngIf="form.get('contact.phone')?.errors && form.get('contact.phone')?.touched" class="text-danger">error_outline</mat-icon>
+        <mat-hint class="text-danger"
+        *ngIf="form.get('contact.phone')?.errors && form.get('contact.phone')?.touched">Campo obrigatório</mat-hint>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="form-element">
+        <mat-label for="email">E-mail</mat-label>
+        <input matInput type="email"
+        formControlName="email"
+        id="email"
+        placeholder="nome@email.com">
+        <mat-icon matSuffix *ngIf="!form.get('contact.email')?.errors" class="text-success">check</mat-icon>
+        <mat-icon matSuffix *ngIf="form.get('contact.email')?.errors && form.get('contact.email')?.touched" class="text-danger">error_outline</mat-icon>
+        <mat-hint class="text-danger"
+        *ngIf="form.get('contact.email')?.errors && form.get('contact.email')?.touched">Campo obrigatório</mat-hint>
+      </mat-form-field>
+    </fieldset>
+
+    <button
+    type="submit"
+    mat-flat-button
+    color="primary"
+    [disabled]="form.invalid">
+      Enviar
+    </button>
+  </form>
