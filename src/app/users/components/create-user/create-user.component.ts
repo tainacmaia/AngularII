@@ -4,7 +4,7 @@ import { FloatLabelType } from '@angular/material/form-field';
 import { State } from '../../models/state.model';
 import { User } from '../../models/user.model';
 import { UsersService } from '../../services/users.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-user',
@@ -15,15 +15,26 @@ export class CreateUserComponent implements OnInit {
   public form!: FormGroup;
   public user!: User;
   public states!: State[];
+  public userId!: string;
 
   constructor(
     private usersService: UsersService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
     this.buildForm();
     this.getStates();
+    this.userId = this.route.snapshot.params['id'];
+    if (this.userId) {
+      this.updateForm();
+    }
+  }
+
+  private updateForm(): void {
+    const user = this.usersService.getUserById(this.userId);
+    this.form.patchValue(user);
   }
 
   private buildForm(): void {
@@ -93,7 +104,11 @@ export class CreateUserComponent implements OnInit {
 
   public onSubmit(): void {
     const user = this.form.getRawValue();
-    this.usersService.saveUser(user);
+    if (this.userId) {
+      this.usersService.editUser(user);
+    } else {
+      this.usersService.saveUser(user);
+    }
     this.form.reset();
     this.router.navigate(['/users']);
   }

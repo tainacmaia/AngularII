@@ -69,7 +69,6 @@ export class UsersService {
   }
 
   public deleteUser(id: string): void {
-    console.log('delete');
     const users = this.getUsers();
     const userIndex = users.findIndex(user => user.id === id);
     users.splice(userIndex, 1);

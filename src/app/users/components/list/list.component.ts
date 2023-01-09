@@ -29,7 +29,6 @@ export class ListComponent implements OnInit {
   }
 
   public deleteUser(id: string): void {
-    console.log('delete');
     this.usersService.deleteUser(id);
     this.getUsers();
   }
