@@ -20,6 +20,8 @@ import {MatSelectModule} from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule, MAT_DATE_LOCALE} from '@angular/material/core';
+import { ProductsComponent } from './products/products.component';
+import { CreateProductComponent } from './products/components/create-product/create-product.component';
 
 const material = [
     MatToolbarModule,
@@ -39,7 +41,9 @@ const material = [
     UsersComponent,
     CreateUserComponent,
     NotFoundComponent,
-    ListComponent
+    ListComponent,
+    ProductsComponent,
+    CreateProductComponent
   ],
   imports: [
     BrowserModule,

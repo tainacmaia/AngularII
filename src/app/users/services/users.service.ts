@@ -60,7 +60,7 @@ export class UsersService {
     const users = this.getUsers();
 
     users.push(user);
-    this.setLocalSorageData(users);
+    this.setLocalStorageData(users);
   }
 
   public getUserById(id: string): User {
@@ -72,17 +72,17 @@ export class UsersService {
     const users = this.getUsers();
     const userIndex = users.findIndex(user => user.id === id);
     users.splice(userIndex, 1);
-    this.setLocalSorageData(users);
+    this.setLocalStorageData(users);
   }
 
   public editUser(user: User): void {
     const users = this.getUsers();
     const index = users.findIndex(u => u.id === user.id);
     users[index] = user;
-    this.setLocalSorageData(users);
+    this.setLocalStorageData(users);
   }
 
-  private setLocalSorageData(data: User[]): void {
+  private setLocalStorageData(data: User[]): void {
     localStorage.setItem('USERS', JSON.stringify(data));
   }
 }
