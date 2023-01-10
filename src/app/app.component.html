@@ -11,22 +11,16 @@
   <button routerLink="/" mat-button>CRUD</button>
   <span class="spacer"></span>
   <div class="menu">
-    <button
-    mat-button
-    routerLink="/users"
-    >Usuários</button>
-  <button
-    mat-button
-    routerLink="/users/create"
-    >Cadastrar usuário</button>
-  <button
-    mat-button
-    routerLink="/products"
-    >Produtos</button>
-  <button
-    mat-button
-    routerLink="/products/create"
-    >Cadastrar produto</button>
+    <button mat-button [matMenuTriggerFor]="menuUsers">Usuários</button>
+    <mat-menu #menuUsers="matMenu">
+      <button mat-button routerLink="/users">Lista de usuários</button>
+      <button mat-button routerLink="/users/create">Cadastrar Usuário</button>
+    </mat-menu>
+    <button mat-button [matMenuTriggerFor]="menuProducts">Produtos</button>
+    <mat-menu #menuProducts="matMenu">
+      <button mat-button routerLink="/products">Lista de produtos</button>
+      <button mat-button routerLink="/products/create">Cadastrar Produto</button>
+    </mat-menu>
   </div>
 </mat-toolbar>
 

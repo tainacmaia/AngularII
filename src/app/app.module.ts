@@ -9,7 +9,7 @@ import { CreateUserComponent } from './users/components/create-user/create-user.
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
-import { NotFoundComponent } from './users/components/not-found/not-found.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ListComponent } from './users/components/list/list.component';
 import { MatCardModule } from '@angular/material/card';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask'
@@ -21,7 +21,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule, MAT_DATE_LOCALE} from '@angular/material/core';
 import { ProductsComponent } from './products/products.component';
+import {MatMenuModule} from '@angular/material/menu';
 import { CreateProductComponent } from './products/components/create-product/create-product.component';
+import { ProductsListComponent } from './products/components/products-list/products-list.component';
+import { HomeComponent } from './components/home/home.component';
 
 const material = [
     MatToolbarModule,
@@ -33,7 +36,8 @@ const material = [
     MatInputModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatMenuModule
 ];
 @NgModule({
   declarations: [
@@ -43,7 +47,9 @@ const material = [
     NotFoundComponent,
     ListComponent,
     ProductsComponent,
-    CreateProductComponent
+    CreateProductComponent,
+    ProductsListComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
